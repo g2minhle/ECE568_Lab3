@@ -1,0 +1,45 @@
+#Abegail Jakop, 998863118, abegail.jakop@mail.utoronto.ca
+#Minh Hoang Le, 999019930, minh.lehoang@mail.utoronto.ca
+
+Attack A, Cookie theft:
+The attack was constructed to steal the cookie by specifying the user value in
+th URL to be a script. Within the script, we remove the error msgs, and use the
+provided sendmail script where the payload is the cookie grabbed from the
+document. The script will be triggered by a DOMContentLoaded event. Encasing
+those are portions are bits and pieces to make the page look the same as the
+not attacked page.
+
+
+Attack B, Cross-Site Request Forgery:
+The attack consists of a faked form that will post a request to send 10 zoobars
+to attacker using their transfer.php page, which is submitted when the body of
+the page is loaded.
+
+To prevent redirecting to the zoobar page too early, we have an iframe that
+is loaded twice, once on the initial attack page load and another time when
+the post request returns to the attack page. We wait for the second time the
+iframe is loaded to redirect the user to the zoobar page (http://ece568.csl.toronto.edu/).
+
+
+Attack C, Password Theft:
+The attack consists of a fake login form that will post a request to the home
+page. We've set the loginpassword value in the form to be null such that
+zoobar site doesn't execute a database query. The username has been set to be
+an attack script.
+
+So the attack happens in the following order: the user goes to the attack site
+which posts a request to the zoobar login page, sending the user to the zoobar
+login page. The user enters their credentials into the login form and hits
+submit. This triggers the event listener, which will clear the warning element
+to keep the user unaware, then use the sendmail website to send the login
+username and login password that the user entered.
+
+
+Attack D, Profile Worm:
+The attack is encased in img tags to get around keyword blocks. Within the img,
+the class has been set to the attack script.
+
+The attack script contains a form that takes the visiting user's username, and
+inputs that into a form, similar to what was created in attack B, that will
+transfer 1 zoobar from the visitor to the attacker.
+
