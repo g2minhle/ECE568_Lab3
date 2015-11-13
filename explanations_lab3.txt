@@ -37,9 +37,9 @@ username and login password that the user entered.
 
 Attack D, Profile Worm:
 The attack is encased in img tags to get around keyword blocks. Within the img,
-the class has been set to the attack script.
+the class has been set to the attack script and the id has been set to zoobars
+to trick the script in the page to pick up and do an eval on the class
 
-The attack script contains a form that takes the visiting user's username, and
-inputs that into a form, similar to what was created in attack B, that will
-transfer 1 zoobar from the visitor to the attacker.
+The attack script contains a XMLHttpRequest to transfer 1 zoobar to attacker account,
+and another XMLHttpRequest to set victim profile to be the attack script.
 

